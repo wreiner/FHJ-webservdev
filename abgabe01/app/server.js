@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
 
     if (urlstring.path.includes('css')) {
         console.log('css');
-        customReadModule.readFile(resourcePath + '/css/style.css', (err, data) => {
+        customReadModule.readFile(resourcePath + req.url, (err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/css' });
                 res.end('Internal server error');
@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
         });
     } else if (urlstring.path.includes('js')) {
         console.log('js');
-        customReadModule.readFile(resourcePath + '/js/script.js', (err, data) => {
+        customReadModule.readFile(resourcePath + req.url, (err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/javascript' });
                 res.end('Internal server error');
