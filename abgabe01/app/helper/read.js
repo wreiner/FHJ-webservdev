@@ -43,6 +43,4 @@ function readFile(filePath, callback) {
 
 module.exports = {
     readFile: readFile,
-    readImageFile: readImageFile,
-    readTextFile: readTextFile,
 };
